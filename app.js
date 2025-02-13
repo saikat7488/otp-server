@@ -12,10 +12,17 @@ const app = express();
 // Apply middlewares
 initialMiddlewares.forEach((middleware) => app.use(middleware));
 
-//Routes
+//Default Route
 app.get("/", (req, res) => {
   res.status(200).json({
-    message : "Connected"
+    message: "Connected"
+  });
+});
+
+//Routes for health check
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    message: "100%"
   });
 });
 
